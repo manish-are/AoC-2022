@@ -65,6 +65,7 @@ public class Tree
 
     public int Size { get; set; } = 0;
 
+    //there is no parent for root node
     public Tree? Parent { get; set; }
 
     public void AddFiles(string fileName, int size)
@@ -112,7 +113,7 @@ public class Tree
             {
                 reqSizes.Add(folder.Value.Size);
             }
-            //par1
+            //part1
             //Sum += folder.Value.Size <= 100000 ? folder.Value.Size : 0;
             folder.Value.Print();
 
