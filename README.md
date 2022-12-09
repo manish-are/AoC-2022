@@ -13,3 +13,14 @@ I have never implemented tree and I was very happy after I solved it
 Even though the solution is not that elegant it still works
 
 I need to learn more about trees and recursion 
+
+
+### Day8 - 2D dynamic array(we need to play with max and length of row/column)
+I implemented it as a custom Dictionary of (x,y)->p
+
+Dont know if it the efficient way to do it but it works
+
+Part1 solved 
+
+Part2,I was unable to solve and will try to solve it once I am free 
+
