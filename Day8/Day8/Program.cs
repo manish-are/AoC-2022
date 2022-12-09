@@ -26,12 +26,6 @@ int visibleTrees = 0;
 
 foreach (var tree in grid)
 {
-    if (tree.Key.row == 1 || tree.Key.column == 1 || tree.Key.row == grid.Keys.MaxBy(x => x.row).row ||
-        tree.Key.column == grid.Keys.MaxBy(x => x.column).column)
-    {
-        visibleTrees += 1;
-        continue;
-    }
     if (tree.Value > grid.Where(x => x.Key.row == tree.Key.row).Take(tree.Key.column - 1).MaxBy(x => x.Value).Value)
     {
         visibleTrees += 1;
