@@ -59,6 +59,53 @@ foreach (var tree in grid)
 Console.WriteLine(visibleTrees);
 
 
+int scenicScore = 0;
+
+int highestScenicScore = 0;
+
+
+
+foreach (var tree in grid)
+{
+    if (tree.Key.row == 1 || tree.Key.column == 1 || tree.Key.row == grid.Keys.MaxBy(x => x.row).row ||
+        tree.Key.column == grid.Keys.MaxBy(x => x.column).column)
+    {
+        continue;
+    }
+
+    var left = grid.Where(x => x.Key.row == tree.Key.row).Take(tree.Key.column - 1).LastOrDefault(x => x.Value >= tree.Value);
+
+    var leftScenicScore = (left.Value == 0) ? tree.Key.column - 1 : tree.Key.column - left.Key.column;
+
+    
+
+    var right = grid.Where(x => x.Key.row == tree.Key.row).Skip(tree.Key.column).FirstOrDefault(x => x.Value >= tree.Value);
+    var rightScenicScore = (right.Value == 0) ? grid.Keys.MaxBy(x => x.column).column - tree.Key.column : right.Key.column - tree.Key.column;
+
+    
+
+    var up = grid.Where(x => x.Key.column == tree.Key.column).Take(tree.Key.row - 1).LastOrDefault(x => x.Value >= tree.Value);
+    var upScenicScore = (up.Value == 0) ? tree.Key.row - 1 : tree.Key.row - up.Key.row;
+
+    
+
+    var down = grid.Where(x => x.Key.column == tree.Key.column).Skip(tree.Key.row).FirstOrDefault(x => x.Value >= tree.Value);
+    var downScenicScore = (down.Value == 0) ? grid.Keys.MaxBy(x => x.row).row - tree.Key.row : down.Key.row - tree.Key.row;
+
+    
+
+    scenicScore = leftScenicScore * rightScenicScore * downScenicScore * upScenicScore;
+
+    if (scenicScore > highestScenicScore)
+    {
+        highestScenicScore = scenicScore;
+    }
+
+
+}
+Console.WriteLine(highestScenicScore);
+
+
 public class Point
 {
     public Point(int row, int column)
