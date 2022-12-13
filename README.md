@@ -22,7 +22,9 @@ Dont know if it the efficient way to do it but it works
 
 Part1 solved 
 
-Part2,I was unable to solve and will try to solve it once I am free 
+Part2 solved after some trouble.nothing fancy just pure bruteforce.
+
+Need to check reddit for some elegant ways to solve this.
 
 
 ### Day9 - 2D grid and something related to cellular automata
